@@ -1,0 +1,35 @@
+{
+  "name": "socket-realtime-chat",
+  "version": "1.0.0",
+  "description": "aplikasi chat socket.io",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/febriadj/socket-realtime-chat.git"
+  },
+  "keywords": [
+    "socket.io",
+    "real-time",
+    "nodejs",
+    "express",
+    "chat-app"
+  ],
+  "author": "febriadj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/febriadj/socket-realtime-chat/issues"
+  },
+  "homepage": "https://github.com/febriadj/socket-realtime-chat#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "socket.io": "^3.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
