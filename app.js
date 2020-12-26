@@ -1,10 +1,10 @@
-const express = require('express'),
-      http = require('http'),
-      path = require('path'),
-      socket = require('socket.io'),
-      app = express(),
-      server = http.createServer(app),
-      io = socket(server);
+const express = require('express');
+const http = require('http');
+const path = require('path');
+const socket = require('socket.io');
+const app = express();
+const server = http.createServer(app);
+const io = socket(server);
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, '/public/css')));
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  console.log('a user connected');
+  console.log('user connected');
 
   io.emit('some event', { 
     someProperty: 'some value', 
