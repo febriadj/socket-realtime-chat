@@ -2,29 +2,31 @@
 <html>
 <head>
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <title><%= title %></title>
 </head>
 <body>
-  <ul id="messages"></ul>
-  <form action="">
-    <input id="m" autocomplete="off" /><button>Send</button>
-  </form>
-
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script>
-    $(function () {
-        var socket = io();
-        $('form').submit(function (e) {
-          e.preventDefault();
-          socket.emit('chat message', $('#m').val());
-          $('#m').val('');
-          return false;
-        });
-        socket.on('chat message', function (msg) {
-          $('#messages').append($('<li>').text(msg));
-        });
-      });
-  </script>
+  
+  <div id="app">
+    <div id="app-wrap">
+      <div id="chat-header">
+        <span></span>
+      </div>
+      <div id="chat-display">
+        <div id="messages">
+        </div>
+      </div>
+      <div id="add-chat">
+        <form action="" id="add-chat-form">
+          <input id="m" autocomplete="off" placeholder="Ketik Pesan" />
+          <button><i class="fas fa-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="/script.js"></script>
 </body>
 </html>

@@ -7,7 +7,8 @@ const express = require('express'),
       io = socket(server);
 
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/public/css')));
+app.use(express.static(path.join(__dirname, '/public/js')));
 
 app.get('/', (req, res) => {
   res.render('index', {
@@ -17,14 +18,22 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   console.log('a user connected');
-  io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' });
+
+  io.emit('some event', { 
+    someProperty: 'some value', 
+    otherProperty: 'other value' 
+  });
+
   socket.on('chat message', (msg) => {
     io.emit('chat message', msg);
   });
+  
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
 });
 
 const port = process.env.PORT || 3000;
-server.listen(port, () => console.log(`app running on port ${port}`));
+server.listen(port, () => {
+  console.log(`app running on port ${port}`);
+});
